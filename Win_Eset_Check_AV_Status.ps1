@@ -56,7 +56,7 @@ try {
 }
 catch {
     $Exception = $_.Exception
-    Write-Host "ERROR: problem with json output. $Exception"
+    Write-Host "ERROR: problem with json output. $($Exception)"
     Exit 2
 }
 
@@ -67,13 +67,13 @@ Write-Verbose "Errortext: $($EsetErmmOutput.error.text)"
 
 Write-Verbose "Checking JSON output"
 If ( $EsetErmmOutput.error.text -ne $null ) {
-    Write-Host "ESET: something went wrong. - $EsetErmmOutput.error.text"
+    Write-Host "ESET: something went wrong. - $($EsetErmmOutput.error.text)"
     Exit 2
 }
 If ( $EsetErmmOutput.result.status -eq "0" ) {
-    Write-Host "ESET: Protection Status OK - $EsetErmmOutput.result.description"
+    Write-Host "ESET: Protection Status OK - $($EsetErmmOutput.result.description)"
     Exit 0
 } else {
-    Write-Host "ESET: Protection Status WARNING - $EsetErmmOutput.result.description"
+    Write-Host "ESET: Protection Status WARNING - $($EsetErmmOutput.result.description)"
     Exit 1
 }
