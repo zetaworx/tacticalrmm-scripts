@@ -37,7 +37,7 @@ catch {
     exit 2
 }
 
-$EsetErmmExe = $EsetErmmPath + "\ermm.exe"
+$EsetErmmExe = $EsetErmmPath + "ermm.exe"
 
 Write-Verbose "Checking for ermm.exe binary"
 Switch ( Test-Path -Path $EsetErmmExe -PathType Leaf ) {
